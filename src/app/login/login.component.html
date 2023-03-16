@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="center">
+<h2>AI STUDIO</h2>
+<form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <input type="email" name="email" required email [(ngModel)]="email" #emailInput="ngModel" class="rectangular-text-field" placeholder="Email/Username">
+    <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="error">
+        <div *ngIf="emailInput.errors?.['required']">Email is required</div>
+      <div *ngIf="emailInput.errors?.['email']">Please enter a valid email address</div>
+    </div>
+    <input type="password" name="password" required minlength="8" [(ngModel)]="password" #passwordInput="ngModel" class="rectangular-text-field" placeholder="Password">
+    <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error">
+      <div *ngIf="passwordInput.errors?.['required']">Password is required</div>
+      <div *ngIf="passwordInput.errors?.['minlength']">Password must be at least 6 characters long</div>
+    </div>
+  <button type="submit" class="submit-button">Sign In</button>
+</form>
+</div>
+</div>
